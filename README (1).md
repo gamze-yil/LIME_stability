@@ -2,16 +2,12 @@
 
 A research project of thesis investigates the stability of LIME (Local Interpretable Model-agnostic Explanations) across repeated runs under different conditions of the dataset and models of machine learning.
 
-
-
 ## Research Questions
 
 - **RQ1** — How stable are LIME explanations across repeated runs for the same input instance?
 - **RQ2** — How does the stability of LIME explanations alter in different models of machine learning?
 - **RQ3** — How do dataset characteristics such as noise and class imbalance influence the stability of LIME explanations?
 - **RQ4** — Under which circumstances can explanations of LIME be considered trustworthy for interpreting the predictions of machine learning?
-
-
 
 ## Structure of the Project
 
@@ -34,15 +30,10 @@ LIME_stability/
 └── README.md
 ```
 
-
-
 ## Datasets
 
-| Dataset | Samples | Features | Classes |
-|---|---|---|---|
-| UCI Adult Income | 48,842 | 14 (6 numeric, 8 categorical) | <=50K / >50K |
-| Breast Cancer Wisconsin | 569 | 30 (all numeric) | Malignant / Benign |
-
+- UCI Adult Income 
+- Breast Cancer Wisconsin 
 
 
 ## Dataset Variations
@@ -50,9 +41,8 @@ LIME_stability/
 | Variation | Levels |
 |---|---|
 | Baseline | No modification |
-| Noise | 5% and 10% Gaussian noise added to numeric features |
+| Noise |  Gaussian noise (5% and 10%) added to numeric features |
 | Class Imbalance | 70/30 and 90/10 majority/minority split |
-
 
 
 ## Machine Learning Models
@@ -64,21 +54,11 @@ LIME_stability/
 | MLP (64→32) | Neural Network |
 
 
-
 ## Metrics for Stability
 
-**Jaccard Similarity** — measures whether the same features appear in two explanations of LIME:
-
-```
-Jaccard(E1, E2) = |E1 ∩ E2| / |E1 ∪ E2|
-```
-
-Range: 0 to 1. A score of 1 means identical feature sets across runs.
-
-**Spearman Rank Correlation** — measures whether features are ranked in the same order across two LIME explanations. Range: -1 to 1. A score of 1 means identical ranking.
-
+**Jaccard Similarity**  measures whether the same features appear in the two explanations of LIME.
+**Spearman Rank Correlation**  measures whether features are ranked in the same order in two LIME explanations. 
 Both metrics are averaged over all pairwise combinations of 20 LIME runs per test instance, across 30 test instances per condition.
-
 
 
 ## How to Run
@@ -120,7 +100,6 @@ python3 generate_plots.py
 
 All 5 plots are saved to `results/figures/`.
 
----
 
 ## Configuration of LIME
 
@@ -133,7 +112,6 @@ All 5 plots are saved to `results/figures/`.
 | Discretizer | Quartile |
 | Random seed | 42 |
 
----
 
 ## Dependencies
 
@@ -147,8 +125,7 @@ All 5 plots are saved to `results/figures/`.
 - scipy
 - certifi
 
----
 
 ## Author
 
-Research project for thesis — 2026
+Research project for thesis (2026)
