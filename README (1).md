@@ -13,7 +13,7 @@ A research project of thesis investigates the stability of LIME (Local Interpret
 
 ## Structure of the Project
 
-
+```
 LIME_stability/
 ├── lime_stability_vscode.py     # Main experiment — loads data, trains models, runs LIME
 ├── generate_plots.py            # Generates all 5 result plots from saved CSVs
