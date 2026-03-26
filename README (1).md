@@ -1,0 +1,153 @@
+# LIME Stability Under Data Variations
+
+A research project of thesis investigates the stability of LIME (Local Interpretable Model-agnostic Explanations) across repeated runs under different conditions of the dataset and models of machine learning.
+
+---
+
+## Research Questions
+
+- **RQ1** — How stable are LIME explanations across repeated runs for the same input instance?
+- **RQ2** — How do dataset characteristics such as noise and class imbalance influence the stability of LIME explanations?
+- **RQ3** — Does the stability of LIME explanations vary across different machine learning models?
+
+---
+
+## Structure of the Project
+
+```
+LIME_stability/
+├── lime_stability_vscode.py     # Main experiment — loads data, trains models, runs LIME
+├── generate_plots.py            # Generates all 5 result plots from saved CSVs
+├── results/
+│   ├── tables/                  # CSV result files
+│   │   ├── baseline_results.csv
+│   │   ├── noise_results.csv
+│   │   ├── imbalance_results.csv
+│   │   └── summary_results.csv
+│   └── figures/                 # PNG plots
+│       ├── rq1_baseline_stability.png
+│       ├── rq2a_noise.png
+│       ├── rq2b_imbalance.png
+│       ├── rq3_model_comparison.png
+│       └── heatmap_all_conditions.png
+└── README.md
+```
+
+---
+
+## Datasets
+
+| Dataset | Samples | Features | Classes |
+|---|---|---|---|
+| UCI Adult Income | 48,842 | 14 (6 numeric, 8 categorical) | <=50K / >50K |
+| Breast Cancer Wisconsin | 569 | 30 (all numeric) | Malignant / Benign |
+
+---
+
+## Dataset Variations
+
+| Variation | Levels |
+|---|---|
+| Baseline | No modification |
+| Noise | 5% and 10% Gaussian noise added to numeric features |
+| Class Imbalance | 70/30 and 90/10 majority/minority split |
+
+---
+
+## Machine Learning Models
+
+| Model | Type |
+|---|---|
+| Logistic Regression | Linear |
+| Random Forest | Ensemble / Non-linear |
+| MLP (64→32) | Neural Network |
+
+---
+
+## Metrics for Stability
+
+**Jaccard Similarity** — measures whether the same features appear in two explanations of LIME:
+
+```
+Jaccard(E1, E2) = |E1 ∩ E2| / |E1 ∪ E2|
+```
+
+Range: 0 to 1. A score of 1 means identical feature sets across runs.
+
+**Spearman Rank Correlation** — measures whether features are ranked in the same order across two LIME explanations. Range: -1 to 1. A score of 1 means identical ranking.
+
+Both metrics are averaged over all pairwise combinations of 20 LIME runs per test instance, across 30 test instances per condition.
+
+---
+
+## How to Run
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/LIME_stability.git
+cd LIME_stability
+```
+
+### 2. Create and activate a virtual environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate        # Mac or Linux
+venv\Scripts\activate           # Windows
+```
+
+### 3. Install the dependencies
+
+```bash
+pip install lime scikit-learn numpy pandas matplotlib seaborn scipy certifi
+```
+
+### 4. Run the experiment
+
+```bash
+python3 lime_stability_vscode.py
+```
+
+This will take approximately **60–70 minutes** to complete. Results are saved automatically to `results/tables/`.
+
+### 5. Then generate plots
+
+```bash
+python3 generate_plots.py
+```
+
+All 5 plots are saved to `results/figures/`.
+
+---
+
+## Configuration of LIME
+
+| Parameter | Value |
+|---|---|
+| LIME runs per instance | 20 |
+| Test instances per condition | 30 |
+| LIME neighbourhood samples | 2000 |
+| Top-K features | 5 |
+| Discretizer | Quartile |
+| Random seed | 42 |
+
+---
+
+## Dependencies
+
+- Python 3.12
+- lime == 0.2.0.1
+- scikit-learn
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- scipy
+- certifi
+
+---
+
+## Author
+
+Research project for thesis — 2026

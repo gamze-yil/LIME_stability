@@ -1,0 +1,25 @@
+# Virtual environment — never push this to GitHub
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Mac system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Raw explanation files (large, not needed on GitHub)
+results/raw_explanations/
+
+# VS Code settings
+.vscode/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Environment variables
+.env
