@@ -2,12 +2,14 @@
 
 A research project of thesis investigates the stability of LIME (Local Interpretable Model-agnostic Explanations) across repeated runs under different conditions of the dataset and models of machine learning.
 
+
 ## Research Questions
 
 - **RQ1** — How stable are LIME explanations across repeated runs for the same input instance?
 - **RQ2** — How does the stability of LIME explanations alter in different models of machine learning?
 - **RQ3** — How do dataset characteristics such as noise and class imbalance influence the stability of LIME explanations?
 - **RQ4** — Under which circumstances can explanations of LIME be considered trustworthy for interpreting the predictions of machine learning?
+
 
 ## Structure of the Project
 
@@ -30,10 +32,12 @@ LIME_stability/
 └── README.md
 ```
 
+
 ## Datasets
 
 - UCI Adult Income 
 - Breast Cancer Wisconsin 
+
 
 
 ## Dataset Variations
@@ -45,6 +49,7 @@ LIME_stability/
 | Class Imbalance | 70/30 and 90/10 majority/minority split |
 
 
+
 ## Machine Learning Models
 
 | Model | Type |
@@ -52,6 +57,7 @@ LIME_stability/
 | Logistic Regression | Linear |
 | Random Forest | Ensemble / Non-linear |
 | MLP (64→32) | Neural Network |
+
 
 
 ## Metrics for Stability
@@ -66,7 +72,7 @@ Both metrics are averaged over all pairwise combinations of 20 LIME runs per tes
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/LIME_stability.git
+git clone https://github.com/gamze-yil/LIME_stability.git
 cd LIME_stability
 ```
 
