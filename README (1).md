@@ -1,20 +1,21 @@
-# LIME Stability Under Data Variations
+# LIME Stability Under the Variations of Data
 
 A research project of thesis investigates the stability of LIME (Local Interpretable Model-agnostic Explanations) across repeated runs under different conditions of the dataset and models of machine learning.
 
----
+
 
 ## Research Questions
 
 - **RQ1** — How stable are LIME explanations across repeated runs for the same input instance?
-- **RQ2** — How do dataset characteristics such as noise and class imbalance influence the stability of LIME explanations?
-- **RQ3** — Does the stability of LIME explanations vary across different machine learning models?
+- **RQ2** — How does the stability of LIME explanations alter in different models of machine learning?
+- **RQ3** — How do dataset characteristics such as noise and class imbalance influence the stability of LIME explanations?
+- **RQ4** — Under which circumstances can explanations of LIME be considered trustworthy for interpreting the predictions of machine learning?
 
----
+
 
 ## Structure of the Project
 
-```
+
 LIME_stability/
 ├── lime_stability_vscode.py     # Main experiment — loads data, trains models, runs LIME
 ├── generate_plots.py            # Generates all 5 result plots from saved CSVs
@@ -33,7 +34,7 @@ LIME_stability/
 └── README.md
 ```
 
----
+
 
 ## Datasets
 
@@ -42,7 +43,7 @@ LIME_stability/
 | UCI Adult Income | 48,842 | 14 (6 numeric, 8 categorical) | <=50K / >50K |
 | Breast Cancer Wisconsin | 569 | 30 (all numeric) | Malignant / Benign |
 
----
+
 
 ## Dataset Variations
 
@@ -52,7 +53,7 @@ LIME_stability/
 | Noise | 5% and 10% Gaussian noise added to numeric features |
 | Class Imbalance | 70/30 and 90/10 majority/minority split |
 
----
+
 
 ## Machine Learning Models
 
@@ -62,7 +63,7 @@ LIME_stability/
 | Random Forest | Ensemble / Non-linear |
 | MLP (64→32) | Neural Network |
 
----
+
 
 ## Metrics for Stability
 
@@ -78,7 +79,7 @@ Range: 0 to 1. A score of 1 means identical feature sets across runs.
 
 Both metrics are averaged over all pairwise combinations of 20 LIME runs per test instance, across 30 test instances per condition.
 
----
+
 
 ## How to Run
 
@@ -97,7 +98,7 @@ source venv/bin/activate        # Mac or Linux
 venv\Scripts\activate           # Windows
 ```
 
-### 3. Install the dependencies
+### 3. Installing the dependencies
 
 ```bash
 pip install lime scikit-learn numpy pandas matplotlib seaborn scipy certifi
@@ -109,7 +110,7 @@ pip install lime scikit-learn numpy pandas matplotlib seaborn scipy certifi
 python3 lime_stability_vscode.py
 ```
 
-This will take approximately **60–70 minutes** to complete. Results are saved automatically to `results/tables/`.
+This will take approximately **50–60 minutes** to complete. Results are saved automatically to `results/tables/`.
 
 ### 5. Then generate plots
 
